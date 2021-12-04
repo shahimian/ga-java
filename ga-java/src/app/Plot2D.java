@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import java.util.Random;
 
 /**
  *
@@ -38,6 +39,19 @@ public class Plot2D extends javax.swing.JPanel {
             g2d.drawLine(0, i, this.getWidth(), i);
         g2d.setColor(new Color(21, 104, 237));
         g2d.drawLine(0, this.getHeight(), this.getWidth(), 0);
+        g2d.setColor(new Color(245, 42, 96));
+        Random rnd = new Random();
+        int c = 10;
+        for(int i = 0; i <= this.getWidth(); i += k)
+            g2d.fillOval(i - c / 2, this.f(i) - c / 2, c, c);
+    }
+    
+    public int f(int x){
+        try {
+            return (this.getHeight() - this.getHeight() / this.getWidth() * x);
+        } catch(ArithmeticException e){
+            return this.getHeight();
+        }
     }
 
     /**

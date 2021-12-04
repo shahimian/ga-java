@@ -33,6 +33,8 @@ public class App extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Genetic Algorithm");
+        setMaximumSize(null);
+        setMinimumSize(new java.awt.Dimension(1068, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
