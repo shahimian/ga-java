@@ -5,6 +5,12 @@
  */
 package app;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Stroke;
+
 /**
  *
  * @author GIGABYTE
@@ -16,6 +22,22 @@ public class Plot2D extends javax.swing.JPanel {
      */
     public Plot2D() {
         initComponents();
+    }
+    
+    public void paintComponent(Graphics g){
+        Graphics2D g2d = (Graphics2D)g.create();
+        super.paintComponent(g2d);
+        g2d.setColor(new Color(235, 234, 235));
+        Stroke stroke = new BasicStroke(1, BasicStroke.CAP_BUTT,
+                BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
+        g2d.setStroke(stroke);
+        int k = 50;
+        for(int i = 0; i <= this.getWidth(); i += k)
+            g2d.drawLine(i, 0 , i, this.getHeight());
+        for(int i = 0; i <= this.getHeight(); i += k)
+            g2d.drawLine(0, i, this.getWidth(), i);
+        g2d.setColor(new Color(21, 104, 237));
+        g2d.drawLine(0, this.getHeight(), this.getWidth(), 0);
     }
 
     /**
